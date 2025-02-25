@@ -18,6 +18,7 @@ class CreateScormTables extends Migration
         // scorm_model
         Schema::create('scorm', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->nullableMorphs('resource');
             $table->string('version')->nullable();
             $table->string('hash_name')->nullable();
@@ -26,6 +27,7 @@ class CreateScormTables extends Migration
             $table->double('ratio')->nullable();
             $table->string('uuid')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         // scorm_sco_model
