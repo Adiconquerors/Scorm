@@ -446,16 +446,16 @@ class ScormService implements ScormServiceContract
         $cmi = $this->getScormTrackData($data, $userId);
 
         $data['entry_url_zip'] = Storage::disk(config('scorm.disk'))
-            ->url('scorm/' . $data->scorm->version . '/' . $data->scorm->uuid . '/' . $data->scorm->uuid . ".zip");
+            ->url('app/scorm/' . $data->scorm->version . '/' . $data->scorm->uuid . '/' . $data->scorm->uuid . ".zip");
         $data['entry_url_absolute'] = Storage::disk(config('scorm.disk'))
-            ->url('scorm/' . $data->scorm->version . '/' . $data->scorm->uuid . '/' . $data->entry_url . $data->sco_parameters);
+            ->url('app/scorm/' . $data->scorm->version . '/' . $data->scorm->uuid . '/' . $data->entry_url . $data->sco_parameters);
         $data['version'] = $data->scorm->version;
         $data['token'] = $token;
         $data['serviceworker'] = Storage::disk(config('scorm.disk'))->url('scorm/serviceworker.js');
-        $data['lmsUrl'] = url('/api/scorm/track');
+        $data['lmsUrl'] = url('/scorm-player-track');
         $data['player'] = (object)[
             'autoCommit' => (bool)$token,
-            'lmsCommitUrl' => $token ? url('/api/scorm/track', $data->uuid) : false,
+            'lmsCommitUrl' => $token ? url('/scorm-player-track', $data->uuid) : false,
             'xhrHeaders' => [
                 'Authorization' => $token ? ('Bearer ' . $token) : null
             ],
