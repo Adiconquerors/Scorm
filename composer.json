@@ -5,7 +5,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/webilio-xyz/laravel-scorm"
+            "url": "https://github.com/Adiconquerors/laravel-scorm"
         }
     ],
     "require": {
