@@ -2,9 +2,15 @@
     "name": "escolalms/scorm",
     "description": "Escola LMS SCORM management",
     "type": "package",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/webilio-xyz/laravel-scorm"
+        }
+    ],
     "require": {
         "php": ">=7.4",
-        "devianl2/laravel-scorm": "^4",
+        "devianl2/laravel-scorm": "dev-main",
         "laravel/framework": ">=8.0",
         "escolalms/core": "^1",
         "escolalms/auth": "^0"
